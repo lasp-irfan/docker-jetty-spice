@@ -50,7 +50,7 @@ RUN set -xe \
 
 RUN mkdir -m 755 /libspice
 COPY libJNISpice.so /libspice
-RUN SPICE_LIBRARY='/libspice/libJNISpice.so'
+ENV SPICE_LIBRARY '/libspice/libJNISpice.so'
 
 COPY docker-entrypoint.bash /
 
