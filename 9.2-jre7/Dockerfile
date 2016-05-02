@@ -47,6 +47,11 @@ RUN set -xe \
 	&& mkdir -p "$JETTY_RUN" "$TMPDIR" \
 	&& chown -R jetty:jetty "$JETTY_RUN" "$TMPDIR" "$JETTY_BASE"
 
+
+RUN mkdir -m 755 /libspice
+COPY libJNISpice.so /libspice
+RUN SPICE_LIBRARY='/libspice/libJNISpice.so'
+
 COPY docker-entrypoint.bash /
 
 EXPOSE 8080
