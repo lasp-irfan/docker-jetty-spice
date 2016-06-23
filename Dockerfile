@@ -52,6 +52,9 @@ RUN mkdir -m 755 /libspice
 COPY libJNISpice.so /libspice
 ENV SPICE_LIBRARY '/libspice/libJNISpice.so'
 
+RUN mkdir -p /var/opt/lasp/maven/logs/
+RUN chown -R jetty:jetty /var/opt/lasp
+
 COPY docker-entrypoint.bash /
 
 EXPOSE 8080
